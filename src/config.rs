@@ -490,6 +490,7 @@ pub struct HtmlConfig {
     /// Additional JS scripts to include at the bottom of the rendered page's
     /// `<body>`.
     pub additional_js: Vec<PathBuf>,
+    pub additional_script: Vec<PathBuf>,
     /// Fold settings.
     pub fold: Fold,
     /// Playground settings.
@@ -542,6 +543,7 @@ impl Default for HtmlConfig {
             google_analytics: None,
             additional_css: Vec::new(),
             additional_js: Vec::new(),
+            additional_script: Vec::new(),
             fold: Fold::default(),
             playground: Playground::default(),
             print: Print::default(),

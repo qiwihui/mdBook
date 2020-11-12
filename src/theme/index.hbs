@@ -277,6 +277,11 @@
         <script type="text/javascript" src="{{ ../path_to_root }}{{this}}"></script>
         {{/each}}
 
+        <!-- Custom JS scripts -->
+        {{#each additional_sript}}
+        {{this}}
+        {{/each}}
+
         {{#if is_print}}
         {{#if mathjax_support}}
         <script type="text/javascript">
