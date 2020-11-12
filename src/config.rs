@@ -485,13 +485,13 @@ pub struct HtmlConfig {
     pub copy_fonts: bool,
     /// An optional google analytics code.
     pub google_analytics: Option<String>,
+    /// An optional google adsense code.
+    pub google_adsense: Option<String>,
     /// Additional CSS stylesheets to include in the rendered page's `<head>`.
     pub additional_css: Vec<PathBuf>,
     /// Additional JS scripts to include at the bottom of the rendered page's
     /// `<body>`.
     pub additional_js: Vec<PathBuf>,
-    /// Additional JS scripts.
-    pub additional_script: Vec<PathBuf>,
     /// Fold settings.
     pub fold: Fold,
     /// Playground settings.
@@ -542,9 +542,9 @@ impl Default for HtmlConfig {
             mathjax_support: false,
             copy_fonts: true,
             google_analytics: None,
+            google_adsense: None,
             additional_css: Vec::new(),
             additional_js: Vec::new(),
-            additional_script: Vec::new(),
             fold: Fold::default(),
             playground: Playground::default(),
             print: Print::default(),

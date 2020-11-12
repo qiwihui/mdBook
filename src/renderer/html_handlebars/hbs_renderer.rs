@@ -320,7 +320,7 @@ impl HtmlHandlebars {
         root: &Path,
         destination: &Path,
     ) -> Result<()> {
-        let custom_files = html.additional_css.iter().chain(html.additional_js.iter()).chain(html.additional_script.iter());
+        let custom_files = html.additional_css.iter().chain(html.additional_js.iter());
 
         debug!("Copying additional CSS and JS");
 
@@ -605,6 +605,10 @@ fn make_data(
     if let Some(ref ga) = html_config.google_analytics {
         data.insert("google_analytics".to_owned(), json!(ga));
     }
+    
+    if let Some(ref ga) = html_config.google_adsense {
+        data.insert("google_adsense".to_owned(), json!(ga));
+    }
 
     if html_config.mathjax_support {
         data.insert("mathjax_support".to_owned(), json!(true));
@@ -636,16 +640,6 @@ fn make_data(
             }
         }
         data.insert("additional_js".to_owned(), json!(js));
-    }
-
-    // Add check to see if there is an additional script
-    if !html_config.additional_script.is_empty() {
-        let mut js = Vec::new();
-        for script in &html_config.additional_script {
-            // load script
-            js.push(fs::read_to_string(script).expect("Could not load to str"));
-        }
-        data.insert("additional_script".to_owned(), json!(js));
     }
 
     if html_config.playground.editable && html_config.playground.copy_js {

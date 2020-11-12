@@ -278,9 +278,9 @@
         {{/each}}
 
         <!-- Custom JS scripts -->
-        {{#each additional_script}}
-        {{this}}
-        {{/each}}
+        {{#if google_adsense}}
+        <script data-ad-client="{{google_adsense}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        {{/if}}
 
         {{#if is_print}}
         {{#if mathjax_support}}
