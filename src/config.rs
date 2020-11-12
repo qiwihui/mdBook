@@ -490,6 +490,7 @@ pub struct HtmlConfig {
     /// Additional JS scripts to include at the bottom of the rendered page's
     /// `<body>`.
     pub additional_js: Vec<PathBuf>,
+    /// Additional JS scripts.
     pub additional_script: Vec<PathBuf>,
     /// Fold settings.
     pub fold: Fold,
